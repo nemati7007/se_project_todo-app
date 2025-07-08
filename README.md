@@ -1,4 +1,4 @@
-<!-- # Simple Todo App
+# Simple Todo App
 
 ## Description
 
@@ -25,4 +25,4 @@ This is a simple and intuitive To-Do application that helps users manage their t
 
 This project is deployed on GitHub Pages:
 
-- [View Live Project](ADD-LINK-HERE) -->
+- [View Live Project](https://nemati7007.github.io/se_project_todo-app/)
