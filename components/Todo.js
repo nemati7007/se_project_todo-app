@@ -1,4 +1,4 @@
-class Todo {
+export default class Todo {
   constructor(data, selector) {
     this._data = data;
     this._templateElement = document.querySelector(selector);
@@ -50,5 +50,3 @@ class Todo {
     return this._todoElement;
   }
 }
-
-export default Todo;
