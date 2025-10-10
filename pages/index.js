@@ -17,11 +17,15 @@ const addTodoPopup = new PopupWithForm({
   handleFormSubmit: () => {},
 });
 
+addTodoPopup.setEventListeners();
+
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
   const todoElement = todo.getView();
   return todoElement;
 };
+
+addTodoButton.addEventListener("click", () => addTodoPopup.open());
 
 const section = new Section(
   {
@@ -35,12 +39,6 @@ const section = new Section(
 );
 
 section.renderItems();
-
-const formValidator = new FormValidator(validationConfig, addTodoForm);
-formValidator.enableValidation();
-
-addTodoButton.addEventListener("click", () => addTodoPopup.open());
-// addTodoCloseBtn.addEventListener("click", () => addTodoPopup.close());
 
 addTodoForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
@@ -60,3 +58,6 @@ addTodoForm.addEventListener("submit", (evt) => {
   addTodoPopup.close();
   formValidator.resetValidation();
 });
+
+const formValidator = new FormValidator(validationConfig, addTodoForm);
+formValidator.enableValidation();
