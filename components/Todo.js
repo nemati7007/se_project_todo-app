@@ -9,11 +9,11 @@ export default class Todo {
   _setEventListeners() {
     this._todoCheckboxEl.addEventListener("change", () => {
       this._data.completed = !this._data.completed;
-      this._handleCheck(this._completed);
+      this._handleCheck(this._data.completed);
     });
 
     this._todoDeleteBtn.addEventListener("click", () => {
-      this._handleCheck(this._completed);
+      this._handleCheck(this._data.completed);
       this._todoElement.remove();
     });
   }

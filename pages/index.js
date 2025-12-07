@@ -15,6 +15,7 @@ function handleCheck(completed) {
 }
 
 function handleDelete(completed) {
+  todoCounter.updateTotal(false);
   if (completed) {
     todoCounter.updateCompleted(false);
   }
@@ -32,8 +33,9 @@ const addTodoPopup = new PopupWithForm({
     const id = uuidv4();
 
     const values = { name: inputValues.name?.trim() ?? "", date, id };
-    const todoEl = generateTodo(values);
-    section.addItem(todoEl);
+    const todoElement = generateTodo(values);
+    section.addItem(todoElement);
+    todoCounter.updateTotal(true);
 
     addTodoPopup.close();
     addTodoForm.reset();
