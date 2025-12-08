@@ -22,7 +22,6 @@ function handleDelete(completed) {
 }
 
 const addTodoButton = document.querySelector(".button_action_add");
-const addTodoForm = document.forms["add-todo-form"];
 
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
@@ -38,12 +37,13 @@ const addTodoPopup = new PopupWithForm({
     todoCounter.updateTotal(true);
 
     addTodoPopup.close();
-    addTodoForm.reset();
+
     formValidator.resetValidation();
   },
 });
 
 addTodoPopup.setEventListeners();
+const addTodoForm = addTodoPopup.getForm();
 
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template", handleCheck, handleDelete);

@@ -17,12 +17,10 @@ export default class Popup {
 
   close() {
     this._popupElement.classList.remove("popup_visible");
-    document.addEventListener("keyup", this._handleEscapeClose);
+    document.removeEventListener("keyup", this._handleEscapeClose);
   }
 
   setEventListeners() {
-    this._popupCloseBtn.addEventListener("click", () => this.close());
-
     this._popupElement.addEventListener("mousedown", (evt) => {
       const clickedOverlay = evt.target === this._popupElement;
       const clickedCloseBtn = evt.target.classList.contains("popup__close");
